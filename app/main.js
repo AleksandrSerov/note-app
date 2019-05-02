@@ -1,10 +1,21 @@
 const inputComponent = {
-  template: `<input class="input is-small" type="text" />`
-}
+  template: `<input  :placeholder="placeholder" v-model="input" type="text" class="input is-small"/>`,
+  props: ["placeholder"],
+  data() {
+    return {
+      input: ""
+    };
+  }
+};
 
 new Vue({
-  el: '#app',
+  el: "#app",
+  data: {
+    notes: [],
+    timestamps: [],
+    placeholder: "Enter the note"
+  },
   components: {
-    'input-component': inputComponent
+    "input-component": inputComponent
   }
-})
+});
